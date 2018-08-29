@@ -1,0 +1,89 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE, message=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(EDITS)
+```
+
+# EDITS
+
+## Descripción
+
+`EDITS` es una herramienta que permite procesar los datos de la Encuesta de Desarrollo e Innovación Tecnológica en Servicios (EDIT-S) suministrada por el Departamento Administrativo Nacional de Estadística: www.dane.gov.co. Con `EDITS` se pueden invocar los marcos de datos originales según período y capítulo, así como los páneles involucrando dos, tres o los cuatro períodos que incluye la encusesta, también según capítulo.
+
+## Instalación
+
+`EDITS` se puede instalar a partir del respositorio en Github mediante la función `install_github` del paquete `devtools`. Es posible que en instalaciones nuevas de R se instalen adicionalmente otros paquetes necesarios para el funcionamiento de `EDITS`.
+
+```{r install, eval=FALSE, include=TRUE}
+install.packages("devtools")
+devtools::install_github("rodianf/EDITS")
+
+library(EDITS)
+```
+
+## Uso
+
+### Argumentos
+
+Las funciones de `EDITS` presentan principalmente tres argumentos: `periodo`, `capitulo` y `panel`.
+
+#### `periodo`
+
+Es el periodo de referencia (dos años) objeto de estudio de la encuesta.
+
+* `ii`: 2008-2009
+* `iii`: 2010-2011
+* `iv`: 2012-2013
+* `v`: 2014-2015
+
+#### `capitulo`
+
+La información capturada se clasificó en seis capítulo según los aspectos de interés.
+
+* `i`: Innovación y su impacto en la empresa en el período de referencia.
+* `ii`: Inversión en actividades científicas, tecnológicas y de innovación ACTI en el período de referencia.
+* `iii`: Financiamiento de las actividades científicas, tecnológicas y de innovación en el período de referencia.
+* `iv`: Personal ocupado relacionado con ACTI en el período de referencia.
+* `v`: Relaciones con actores del Sistema SNCTI y cooperación para la innovación en el período de referencia.
+* `vi`: Propiedad intelectual, certificaciones de calidad, normas técnicas y reglamentos técnicos en el período de referencia.
+* `todos`: Incluye en el marco de datos final todos los capítulos de la encuesta.
+
+#### `panel`
+
+El panel hace referencia a la compilación de dos a cuatro períodos de referencia.
+
+* `pi`: Períodos `ii` y `iii`.
+* `pii`: Períodos `ii`, `iii` y `iv`.
+* `piii`: Períodos `ii`, `iii`, `iv` y `v`.
+
+### Funciones
+
+#### `edit_capitulo`
+
+Esta función lee los datos de la encuesta y devuelve un marco de datos _tibble_ del período y capítulos especificados.
+
+```{r}
+edit_capitulo(periodo = "ii", capitulo = "i")
+edit_capitulo(periodo = "iv", capitulo = "v")
+edit_capitulo(periodo = "v", capitulo = c("ii","iv"))
+```
+
+#### `edit_panel`
+
+Esta función construye paneles a pastir de los datos procesados por `edit_capitulo`, genera un marco de datos _tibble_ del panel y capítulos especificados.
+
+```{r}
+edit_panel(panel = "pi", capitulo = "i")
+edit_panel(panel = "pii", capitulo = c("i","iv"))
+```
+
+
+
