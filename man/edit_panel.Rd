@@ -2,7 +2,7 @@
 % Please edit documentation in R/edit_panel.R
 \name{edit_panel}
 \alias{edit_panel}
-\title{Construye paneles a partir de los datos EDIT-S}
+\title{Panel EDIT-S según capítulo}
 \usage{
 edit_panel(panel, capitulo)
 }

@@ -1,6 +1,6 @@
 Package: EDITS
 Type: Package
-Title: Carga y prepara los datos de la Encuesta de Desarrollo e Innovación Tecnológica en Servicios (EDIT-S) del DANE.
+Title: Procesa los datos de la Encuesta de Desarrollo e Innovación Tecnológica en Servicios (EDIT-S) del DANE.
 Version: 0.1.0
 Author: Rodian Fonseca
 Maintainer: Rodian Fonseca <rodian1@gmail.com>

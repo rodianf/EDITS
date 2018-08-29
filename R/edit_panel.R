@@ -1,5 +1,5 @@
 
-#' Construye paneles a partir de los datos EDIT-S
+#' Panel EDIT-S según capítulo
 #'
 #' Construye paneles renombrando las variables para el acople entre periodos.
 #'

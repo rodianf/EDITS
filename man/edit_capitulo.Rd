@@ -4,12 +4,12 @@
 \alias{edit_capitulo}
 \title{Datos EDIT-S según capítulo y periodo}
 \usage{
-edit_capitulo(capitulo, periodo)
+edit_capitulo(periodo, capitulo)
 }
 \arguments{
-\item{capitulo}{una cadena de texto o un vector de cadenas de texto. Selecciona el o los capítulos en el marco de datos.}
+\item{periodo}{una cadena de texto. Selecciona el periodo en el marco de datos. Este argumento puede tomar el valor `"ii"`, `"iii"`, `"iv"` o `"v"`.}
 
-\item{periodo}{una cadena de texto. Selecciona el periodo en el marco de datos.}
+\item{capitulo}{una cadena de texto o un vector de cadenas de texto. Selecciona el o los capítulos en el marco de datos. Puede tomar los valores `"i"`, `"ii"`, `"iii"`, `"iv"`, `"v"` o `"vi"`.}
 }
 \value{
 un marco de datos tibble.
