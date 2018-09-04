@@ -1,7 +1,7 @@
 Package: EDITS
 Type: Package
 Title: Procesa los datos de la Encuesta de Desarrollo e Innovación Tecnológica en Servicios (EDIT-S) del DANE.
-Version: 0.1.0
+Version: 0.1.1
 Author: Rodian Fonseca
 Maintainer: Rodian Fonseca <rodian1@gmail.com>
 Description: Este paquete contiene las bases de datos de la Encuesta de Innovación y Tecnología en Servicios (EDIT S).
