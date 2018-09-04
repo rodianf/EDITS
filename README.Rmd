@@ -60,9 +60,9 @@ La información capturada se clasificó en seis capítulo según los aspectos de
 
 El panel hace referencia a la compilación de dos a cuatro períodos de referencia.
 
-* `pi`: Períodos `ii` y `iii`.
-* `pii`: Períodos `ii`, `iii` y `iv`.
-* `piii`: Períodos `ii`, `iii`, `iv` y `v`.
+* `p1`: Períodos `ii` y `iii`.
+* `p2`: Períodos `ii`, `iii` y `iv`.
+* `p3`: Períodos `ii`, `iii`, `iv` y `v`.
 
 ### Funciones
 
@@ -81,9 +81,18 @@ edit_capitulo(periodo = "v", capitulo = c("ii","iv"))
 Esta función construye paneles a pastir de los datos procesados por `edit_capitulo`, genera un marco de datos _tibble_ del panel y capítulos especificados.
 
 ```{r}
-edit_panel(panel = "pi", capitulo = "i")
-edit_panel(panel = "pii", capitulo = c("i","iv"))
+edit_panel(panel = "p1", capitulo = "i")
+edit_panel(panel = "p2", capitulo = c("i","iv"))
 ```
 
+#### `edit_dicc`
 
+Esta función carga en el ambiente global el diccionario elegido en los argumentos.
+
+```{r}
+edit_dicc(periodo = "iii")
+dicc_iii
+edit_dicc(panel = "p2")
+dicc_p2
+```
 
