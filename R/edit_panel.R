@@ -15,6 +15,8 @@
 #'
 edit_panel <- function(panel, capitulo) {
 
+  panel <- tolower(panel)
+
   panel_periodo <- function(datos1, datos2, panel, capitulo) {
 
     datos1 %>%
@@ -26,19 +28,19 @@ edit_panel <- function(panel, capitulo) {
   }
 
   datos <- switch (panel,
-    pi = panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "ii"),
+    p1 = panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "ii"),
                        edit_capitulo(capitulo = capitulo, periodo = "iii"),
                        panel = panel, capitulo = capitulo),
-    pii = panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "ii"),
+    p2 = panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "ii"),
                         edit_capitulo(capitulo = capitulo, periodo = "iii"),
-                        panel = "pi", capitulo = capitulo) %>%
+                        panel = "p1", capitulo = capitulo) %>%
       panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "iv"),
                     panel = panel, capitulo = capitulo),
-    piii = panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "ii"),
+    p3 = panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "ii"),
                          edit_capitulo(capitulo = capitulo, periodo = "iii"),
-                         panel = "pi", capitulo = capitulo) %>%
+                         panel = "p1", capitulo = capitulo) %>%
       panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "iv"),
-                    panel = "pii", capitulo = capitulo) %>%
+                    panel = "p2", capitulo = capitulo) %>%
       panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "v"),
                     panel = panel, capitulo = capitulo)
   )
