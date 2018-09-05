@@ -10,10 +10,10 @@
 #' @export
 #'
 #' @examples
-#' edit_panel(panel = "pii", capitulo = "v")
-#' edit_panel(panel = "pi", capitulo = "todos")
+#' edit_panel(panel = "p2", capitulo = "v")
+#' edit_panel(panel = "p1", capitulo = "todos")
 #'
-edit_panel <- function(panel, capitulo) {
+edit_panel <- function(panel = "p3", capitulo, entrevista = NULL) {
 
   panel <- tolower(panel)
 
@@ -44,6 +44,17 @@ edit_panel <- function(panel, capitulo) {
       panel_periodo(edit_capitulo(capitulo = capitulo, periodo = "v"),
                     panel = panel, capitulo = capitulo)
   )
+
+    datos %>%
+      select(Periodo, nordemp) %>%
+      group_by(nordemp) %>%
+      summarise(Entrevista = paste(Periodo, collapse = "-")) %>%
+      left_join(datos) -> datos
+
+    if (!is.null(entrevista)) {
+      datos %>%
+        filter(Entrevista == entrevista) -> datos
+    }
 
   return(datos)
 }

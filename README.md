@@ -6,7 +6,7 @@ EDITS
 Descripción
 -----------
 
-`EDITS` es una herramienta que permite procesar los datos de la Encuesta de Desarrollo e Innovación Tecnológica en Servicios (EDIT-S) suministrada por el Departamento Administrativo Nacional de Estadística: www.dane.gov.co. Con `EDITS` se pueden invocar los marcos de datos originales según período y capítulo, así como los páneles involucrando dos, tres o los cuatro períodos que incluye la encusesta, también según capítulo.
+`EDITS` es una herramienta que permite procesar los datos de la Encuesta de Desarrollo e Innovación Tecnológica en Servicios (EDIT-S) suministrada por el Departamento Administrativo Nacional de Estadística: www.dane.gov.co. Con `EDITS` se pueden invocar los marcos de datos originales según período y capítulo, así como los páneles involucrando dos, tres o los cuatro períodos que incluye la encuesta, también según capítulo.
 
 Instalación
 -----------
@@ -170,84 +170,83 @@ edit_capitulo(periodo = "v", capitulo = c("ii","iv"))
 
 #### `edit_panel`
 
-Esta función construye paneles a pastir de los datos procesados por `edit_capitulo`, genera un marco de datos *tibble* del panel y capítulos especificados.
+Esta función construye paneles a partir de los datos procesados por `edit_capitulo`, genera un marco de datos *tibble* del panel y capítulos especificados.
 
 ``` r
 edit_panel(panel = "p1", capitulo = "i")
-#> # A tibble: 8,700 x 83
-#>    Periodo nordemp CIIU3 TIPOLOGIA I1R1C1 I1R1C2 I1R2C1 I1R2C2 I1R3C1
-#>    <chr>     <int> <dbl> <chr>      <int>  <dbl>  <int>  <dbl>  <int>
-#>  1 ii            1    40 INNO           1      9      2     NA      2
-#>  2 ii            2    40 INNO           2     NA      2     NA      2
-#>  3 ii            4    40 INNO           2     NA      2     NA      2
-#>  4 ii            5    40 NOINNO         2     NA      2     NA      2
-#>  5 ii            6    40 INNO           1      4      1      2      2
-#>  6 ii            7    40 INNO           1      1      2     NA      2
-#>  7 ii            8    40 NOINNO         2     NA      2     NA      2
-#>  8 ii           10    40 NOINNO         2     NA      2     NA      2
-#>  9 ii           11    40 NOINNO         2     NA      2     NA      2
-#> 10 ii           12    40 INNO           1     15      2     NA      2
-#> # ... with 8,690 more rows, and 74 more variables: I1R3C2 <dbl>,
-#> #   I1R4C1 <int>, I1R4C2 <dbl>, I1R5C1 <int>, I1R5C2 <dbl>, I1R6C1 <int>,
-#> #   I1R6C2 <dbl>, I2R1C1 <int>, I2R2C1 <int>, I2R3C1 <int>, I2R4C1 <int>,
-#> #   I2R5C1 <int>, I2R6C1 <int>, I2R7C1 <int>, I2R8C1 <int>, I2R9C1 <int>,
-#> #   I2R10C1 <int>, I2R11C1 <int>, I3R1C1 <dbl>, I3R1C2 <dbl>,
-#> #   I3R2C1 <dbl>, I3R2C2 <dbl>, I3R3C1 <dbl>, I3R3C2 <dbl>, I4R1C1 <dbl>,
-#> #   I5R1C1 <int>, I6R1C1 <int>, I6R2C1 <int>, I6R3C1 <int>, I6R4C1 <int>,
-#> #   I6R5C1 <int>, I6R6C1 <int>, I6R7C1 <int>, I6R8C1 <int>, I6R9C1 <int>,
-#> #   I6R10C1 <int>, I6R11C1 <int>, I6R12C1 <int>, I6R13C1 <int>,
-#> #   I6R14C1 <int>, TIPOLO <chr>, I1R7C1 <int>, I1R7C2 <dbl>, I1R8C2 <dbl>,
-#> #   I1R9C1 <int>, I1R9C2 <dbl>, I1R10C1 <int>, I1R10C2 <dbl>,
-#> #   I1R11C1 <int>, I1R11C2 <int>, I4R1C2 <dbl>, I4R2C1 <dbl>,
-#> #   I4R2C2 <dbl>, I4R3C1 <dbl>, I4R3C2 <dbl>, I4R4C1 <dbl>, I4R4C2 <dbl>,
-#> #   I4R5C1 <dbl>, I4R5C2 <dbl>, I7R1C1 <int>, I7R2C1 <int>, I7R3C1 <int>,
-#> #   I7R4C1 <int>, I7R5C1 <int>, I7R6C1 <int>, I7R7C1 <int>, I7R8C1 <int>,
-#> #   I7R9C1 <int>, I7R10C1 <int>, I7R11C1 <int>, I7R12C1 <int>,
-#> #   I7R13C1 <int>, I7R14C1 <int>, I7R15C1 <int>
+#> Joining, by = "nordemp"
+#> # A tibble: 8,700 x 65
+#>    nordemp Entrevista Periodo CIIU3 TIPOLO I1R1C1 I1R1C2 I1R2C1 I1R2C2
+#>      <int> <chr>      <chr>   <dbl> <chr>   <int>  <dbl>  <int>  <dbl>
+#>  1       1 ii-iii     ii         40 INNO        1      9      2     NA
+#>  2       1 ii-iii     iii        40 AMPLIA      2     NA      2     NA
+#>  3       2 ii-iii     ii         40 INNO        2     NA      2     NA
+#>  4       2 ii-iii     iii        40 NOINNO      2     NA      2     NA
+#>  5       4 ii-iii     ii         40 INNO        2     NA      2     NA
+#>  6       4 ii-iii     iii        40 AMPLIA      2     NA      2     NA
+#>  7       5 ii-iii     ii         40 NOINNO      2     NA      2     NA
+#>  8       5 ii-iii     iii        40 NOINNO      2     NA      2     NA
+#>  9       6 ii-iii     ii         40 INNO        1      4      1      2
+#> 10       6 ii-iii     iii        40 AMPLIA      1      4      1      2
+#> # ... with 8,690 more rows, and 56 more variables: I1R3C1 <int>,
+#> #   I1R3C2 <dbl>, I1R9C1 <int>, I1R9C2 <dbl>, I1R10C1 <int>,
+#> #   I1R10C2 <dbl>, I1R11C1 <int>, I1R11C2 <dbl>, I2R1C1 <int>,
+#> #   I2R2C1 <int>, I2R3C1 <int>, I2R4C1 <int>, I2R5C1 <int>, I2R6C1 <int>,
+#> #   I2R9C1 <int>, I2R7C1 <int>, I2R8C1 <int>, I2R10C1 <int>,
+#> #   I2R11C1 <int>, I4R1C1 <dbl>, I4R1C2 <dbl>, I4R2C1 <dbl>, I4R2C2 <dbl>,
+#> #   I4R3C1 <dbl>, I4R3C2 <dbl>, I5R1C1 <int>, I6R1C1 <int>, I7R1C1 <int>,
+#> #   I7R2C1 <int>, I7R3C1 <int>, I7R4C1 <int>, I7R5C1 <int>, I7R6C1 <int>,
+#> #   I7R8C1 <int>, I7R9C1 <int>, I7R10C1 <int>, I7R11C1 <int>,
+#> #   I7R12C1 <int>, I7R13C1 <int>, I7R14C1 <int>, I7R15C1 <int>,
+#> #   I1R4C2 <dbl>, I1R5C1 <int>, I1R5C2 <dbl>, I1R6C1 <int>, I1R6C2 <dbl>,
+#> #   I1R7C1 <int>, I1R7C2 <dbl>, I1R8C2 <dbl>, I3R1C1 <dbl>, I3R1C2 <dbl>,
+#> #   I4R4C1 <dbl>, I4R4C2 <dbl>, I4R5C1 <dbl>, I4R5C2 <dbl>, I7R7C1 <int>
 edit_panel(panel = "p2", capitulo = c("i","iv"))
-#> # A tibble: 14,548 x 417
-#>    Periodo nordemp CIIU3 TIPOLOGIA I1R1C1 I1R1C2 I1R2C1 I1R2C2 I1R3C1
-#>    <chr>     <int> <dbl> <chr>      <int>  <dbl>  <int>  <dbl>  <int>
-#>  1 ii            1    40 INNO           1      9      2     NA      2
-#>  2 ii            2    40 INNO           2     NA      2     NA      2
-#>  3 ii            4    40 INNO           2     NA      2     NA      2
-#>  4 ii            5    40 NOINNO         2     NA      2     NA      2
-#>  5 ii            6    40 INNO           1      4      1      2      2
-#>  6 ii            7    40 INNO           1      1      2     NA      2
-#>  7 ii            8    40 NOINNO         2     NA      2     NA      2
-#>  8 ii           10    40 NOINNO         2     NA      2     NA      2
-#>  9 ii           11    40 NOINNO         2     NA      2     NA      2
-#> 10 ii           12    40 INNO           1     15      2     NA      2
-#> # ... with 14,538 more rows, and 408 more variables: I1R3C2 <dbl>,
-#> #   I1R4C1 <int>, I1R4C2 <dbl>, I1R5C1 <int>, I1R5C2 <dbl>, I1R6C1 <int>,
-#> #   I1R6C2 <dbl>, I2R1C1 <int>, I2R2C1 <int>, I2R3C1 <int>, I2R4C1 <int>,
-#> #   I2R5C1 <int>, I2R6C1 <int>, I2R7C1 <int>, I2R8C1 <int>, I2R9C1 <int>,
-#> #   I2R10C1 <int>, I2R11C1 <int>, I3R1C1 <dbl>, I3R1C2 <dbl>,
-#> #   I3R2C1 <dbl>, I3R2C2 <dbl>, I3R3C1 <dbl>, I3R3C2 <dbl>, I4R1C1 <dbl>,
-#> #   I5R1C1 <int>, I6R1C1 <int>, I6R2C1 <int>, I6R3C1 <int>, I6R4C1 <int>,
-#> #   I6R5C1 <int>, I6R6C1 <int>, I6R7C1 <int>, I6R8C1 <int>, I6R9C1 <int>,
-#> #   I6R10C1 <int>, I6R11C1 <int>, I6R12C1 <int>, I6R13C1 <int>,
-#> #   I6R14C1 <int>, IV1R1C1 <dbl>, IV1R1C2 <dbl>, IV1R1C3 <dbl>,
-#> #   IV1R1C4 <dbl>, IV1R2C1 <dbl>, IV1R2C2 <dbl>, IV1R2C3 <dbl>,
-#> #   IV1R2C4 <dbl>, IV1R3C1 <dbl>, IV1R3C2 <dbl>, IV1R3C3 <dbl>,
-#> #   IV1R3C4 <dbl>, IV1R4C1 <dbl>, IV1R4C2 <dbl>, IV1R4C3 <dbl>,
-#> #   IV1R4C4 <dbl>, IV1R5C1 <dbl>, IV1R5C2 <dbl>, IV1R5C3 <dbl>,
-#> #   IV1R5C4 <dbl>, IV1R6C1 <dbl>, IV1R6C2 <dbl>, IV1R6C3 <dbl>,
-#> #   IV1R6C4 <dbl>, IV1R7C1 <dbl>, IV1R7C2 <dbl>, IV1R7C3 <dbl>,
-#> #   IV1R7C4 <dbl>, IV1R8C1 <dbl>, IV1R8C2 <dbl>, IV1R8C3 <dbl>,
-#> #   IV1R8C4 <dbl>, IV1R9C1 <dbl>, IV1R9C2 <dbl>, IV1R9C3 <dbl>,
-#> #   IV1R9C4 <dbl>, IV1R10C1 <dbl>, IV1R10C2 <dbl>, IV1R10C3 <dbl>,
-#> #   IV1R10C4 <dbl>, IV1R11C1 <dbl>, IV1R11C2 <dbl>, IV1R11C3 <dbl>,
-#> #   IV1R11C4 <dbl>, IV5R1C1 <dbl>, IV5R1C2 <dbl>, IV2R1C1 <dbl>,
-#> #   IV2R1C2 <dbl>, IV2R1C3 <dbl>, IV2R1C4 <dbl>, IV2R1C5 <dbl>,
-#> #   IV2R1C6 <dbl>, IV2R2C1 <dbl>, IV2R2C2 <dbl>, IV2R2C3 <dbl>,
-#> #   IV2R2C4 <dbl>, IV2R2C5 <dbl>, IV2R2C6 <dbl>, IV2R3C1 <dbl>,
-#> #   IV2R3C2 <dbl>, …
+#> Joining, by = "nordemp"
+#> # A tibble: 14,548 x 368
+#>    nordemp Entrevista Periodo CIIU3 TIPOLOGIA I1R1C1N I1R1C2N I1R2C1N
+#>      <int> <chr>      <chr>   <dbl> <chr>       <int>   <dbl>   <int>
+#>  1       1 ii-iii-iv  ii         40 INNO            1       9       2
+#>  2       1 ii-iii-iv  iii        40 AMPLIA          2      NA       2
+#>  3       1 ii-iii-iv  iv         40 INNOV           2      NA       2
+#>  4       2 ii-iii     ii         40 INNO            2      NA       2
+#>  5       2 ii-iii     iii        40 NOINNO          2      NA       2
+#>  6       4 ii-iii-iv  ii         40 INNO            2      NA       2
+#>  7       4 ii-iii-iv  iii        40 AMPLIA          2      NA       2
+#>  8       4 ii-iii-iv  iv         40 INNOV           2      NA       2
+#>  9       5 ii-iii     ii         40 NOINNO          2      NA       2
+#> 10       5 ii-iii     iii        40 NOINNO          2      NA       2
+#> # ... with 14,538 more rows, and 360 more variables: I1R2C2N <dbl>,
+#> #   I1R3C1N <int>, I1R3C2N <dbl>, I1R4C1 <int>, I1R4C2 <dbl>,
+#> #   I1R5C1 <int>, I1R5C2 <dbl>, I1R6C1 <int>, I1R6C2 <dbl>, I2R1C1 <int>,
+#> #   I2R2C1 <int>, I2R3C1 <int>, I2R4C1 <int>, I2R5C1 <int>, I2R6C1 <int>,
+#> #   I2R8C1 <int>, I2R9C1 <int>, I2R7C1 <int>, I2R10C1 <int>,
+#> #   I2R11C1 <int>, I4R1C1 <dbl>, I4R1C2 <dbl>, I4R2C1 <dbl>, I4R2C2 <dbl>,
+#> #   I4R3C1 <dbl>, I4R3C2 <dbl>, I5R1C1 <int>, I6R1C1 <int>, I8R1C1 <int>,
+#> #   I8R2C1 <int>, I8R3C1 <int>, I8R4C1 <int>, I8R5C1 <int>, I8R6C1 <int>,
+#> #   I8R7C1 <int>, I8R8C1 <int>, I8R9C1 <int>, I8R10C1 <int>,
+#> #   I8R11C1 <int>, I8R12C1 <int>, I8R13C1 <int>, I8R14C1 <int>,
+#> #   IV1R1C1 <dbl>, IV1R1C2 <dbl>, IV1R1C3 <dbl>, IV1R1C4 <dbl>,
+#> #   IV1R2C1 <dbl>, IV1R2C2 <dbl>, IV1R2C3 <dbl>, IV1R2C4 <dbl>,
+#> #   IV1R3C1 <dbl>, IV1R3C2 <dbl>, IV1R3C3 <dbl>, IV1R3C4 <dbl>,
+#> #   IV1R4C1 <dbl>, IV1R4C2 <dbl>, IV1R4C3 <dbl>, IV1R4C4 <dbl>,
+#> #   IV1R5C1 <dbl>, IV1R5C2 <dbl>, IV1R5C3 <dbl>, IV1R5C4 <dbl>,
+#> #   IV1R6C1 <dbl>, IV1R6C2 <dbl>, IV1R6C3 <dbl>, IV1R6C4 <dbl>,
+#> #   IV1R7C1 <dbl>, IV1R7C2 <dbl>, IV1R7C3 <dbl>, IV1R7C4 <dbl>,
+#> #   IV1R8C1 <dbl>, IV1R8C2 <dbl>, IV1R8C3 <dbl>, IV1R8C4 <dbl>,
+#> #   IV1R9C1 <dbl>, IV1R9C2 <dbl>, IV1R9C3 <dbl>, IV1R9C4 <dbl>,
+#> #   IV1R10C1 <dbl>, IV1R10C2 <dbl>, IV1R10C3 <dbl>, IV1R10C4 <dbl>,
+#> #   IV1R11C1 <dbl>, IV1R11C2 <dbl>, IV1R11C3 <dbl>, IV1R11C4 <dbl>,
+#> #   IV2R1C1 <dbl>, IV2R1C2 <dbl>, IV3R1C1PIII <dbl>, IV3R1C2PIII <dbl>,
+#> #   IV3R1C3PIII <dbl>, IV3R1C4PIII <dbl>, IV2R1C5PII <dbl>,
+#> #   IV3R1C7PIII <dbl>, IV3R2C1PIII <dbl>, IV3R2C2PIII <dbl>,
+#> #   IV3R2C3PIII <dbl>, IV3R2C4PIII <dbl>, IV2R2C5PII <dbl>,
+#> #   IV3R2C7PIII <dbl>, …
 ```
 
 #### `edit_dicc`
 
-Esta función carga en el ambiente global el diccionario elegido en los argumentos.
+Esta función invoca en el ambiente global el diccionario elegido en los argumentos.
 
 ``` r
 edit_dicc(periodo = "iii")

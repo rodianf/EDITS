@@ -4,13 +4,13 @@ library(readr)
 library(dplyr)
 
 EDIT_panel_R1 <- read_csv("data-raw/EDIT_panel_R1.csv", col_types = "cc") %>%
-  mutate(Panel = "PI") %>%
+  mutate(Panel = "P1") %>%
   select(Panel, everything())
 EDIT_panel_R2 <- read_csv("data-raw/EDIT_panel_R2.csv", col_types = "cc") %>%
-  mutate(Panel = "PII") %>%
+  mutate(Panel = "P2") %>%
   select(Panel, everything())
 EDIT_panel_R3 <- read_csv("data-raw/EDIT_panel_R3.csv", col_types = "cc") %>%
-  mutate(Panel = "PIII") %>%
+  mutate(Panel = "P3") %>%
   select(Panel, everything())
 
 plantilla_columnas <- data.frame(capitulos = c("todos","i","ii","iii","iv","v","vi"),

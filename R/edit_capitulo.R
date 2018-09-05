@@ -4,7 +4,7 @@
 #' Invoca los datos de la Encuesta de Desarrollo e Innovación Tecnológica en Servicios (EDIT-S) seleccionando los capítulos y períodos indicados.
 #'
 #' @param periodo una cadena de texto. Selecciona el periodo en el marco de datos. Este argumento puede tomar el valor `"ii"`, `"iii"`, `"iv"` o `"v"`.
-#' @param capitulo una cadena de texto o un vector de cadenas de texto. Selecciona el o los capítulos en el marco de datos. Puede tomar los valores `"i"`, `"ii"`, `"iii"`, `"iv"`, `"v"` o `"vi"`.
+#' @param capitulo una cadena de texto o un vector de cadenas de texto. Selecciona el o los capítulos en el marco de datos. Puede tomar los valores `"i"`, `"ii"`, `"iii"`, `"iv"`, `"v"`, `"vi"` o `"todos"`.
 #'
 #' @return un marco de datos tibble.
 #' @export
@@ -31,8 +31,8 @@ edit_capitulo <- function(periodo, capitulo) {
   periodo_datos %>%
     select(1:3, matches(columnas)) %>%
     mutate(Periodo = periodo) %>%
-    select(Periodo, everything()) -> datos_out
+    select(Periodo, everything()) -> datos
 
-  return(datos_out)
+  return(datos)
 
 }
