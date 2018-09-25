@@ -13,8 +13,8 @@ EDIT_panel_R3 <- read_csv("data-raw/EDIT_panel_R3.csv", col_types = "cc") %>%
   mutate(Panel = "P3") %>%
   select(Panel, everything())
 
-plantilla_columnas <- data.frame(capitulos = c("todos","i","ii","iii","iv","v","vi"),
-                                 columnas = c(".","^I{1}\\d","^I{2}\\d","^I{3}\\d","^IV{1}\\d","^V{1}\\d","^VI{1}\\d"))
+plantilla_columnas <- data.frame(capitulos = c("todos","i","ii","iii","iv","v","vi","ninguno"),
+                                 columnas = c(".","^I{1}\\d","^I{2}\\d","^I{3}\\d","^IV{1}\\d","^V{1}\\d","^VI{1}\\d","[\\^]"))
 
 dicc_II <- read_delim("data-raw/EDIT\ data\ dictionary\ -\ II.tsv", delim = "\t", col_types = "cccc")
 dicc_III <- read_delim("data-raw/EDIT\ data\ dictionary\ -\ III.tsv", delim = "\t", col_types = "cccc")
