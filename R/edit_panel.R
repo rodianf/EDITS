@@ -13,7 +13,7 @@
 #' edit_panel(panel = "p2", capitulo = "v")
 #' edit_panel(panel = "p1", capitulo = "todos")
 #'
-edit_panel <- function(panel = "p3", capitulo, entrevista = NULL) {
+edit_panel <- function(panel = "p3", capitulo, registro = NULL) {
 
   panel <- tolower(panel)
 
@@ -48,12 +48,12 @@ edit_panel <- function(panel = "p3", capitulo, entrevista = NULL) {
     datos %>%
       select(Periodo, nordemp) %>%
       group_by(nordemp) %>%
-      summarise(Entrevista = paste(Periodo, collapse = "-")) %>%
+      summarise(Registro = paste(Periodo, collapse = "-")) %>%
       left_join(datos) -> datos
 
-    if (!is.null(entrevista)) {
+    if (!is.null(registro)) {
       datos %>%
-        filter(Entrevista == entrevista) -> datos
+        filter(Registro == registro) -> datos
     }
 
   return(datos)
