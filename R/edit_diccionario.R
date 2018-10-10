@@ -34,6 +34,7 @@ edit_dicc <- function(periodo=NULL, panel=NULL, col_types = "cccc") {
     )
   }
 
-  assign(paste0("dicc_", dicc_name), dicc, envir = .GlobalEnv)
+  #assign(paste0("dicc_", dicc_name), dicc, envir = .GlobalEnv)
+  return(dicc)
 
 }

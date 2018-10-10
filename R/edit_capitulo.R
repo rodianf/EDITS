@@ -13,7 +13,7 @@
 #' edit_capitulo(capitulo = "ii", periodo = "iii")
 #' edit_capitulo(capitulo = c("i","iv"), periodo = "v")
 #'
-edit_capitulo <- function(periodo, capitulo) {
+edit_capitulo <- function(periodo, capitulo, recod = TRUE, factor = FALSE) {
 
   plantilla_columnas %>%
     filter(capitulos %in% capitulo) %>%
@@ -28,10 +28,28 @@ edit_capitulo <- function(periodo, capitulo) {
                        v = Estructura_EDIT_SERVICIOS_V_2014_2015
   )
 
+  # Incluir variable Periodo
   periodo_datos %>%
     select(1:3, matches(columnas)) %>%
     mutate(Periodo = periodo) %>%
     select(Periodo, everything()) -> datos
+
+  # Recodificación de variables
+  if (recod) {
+    datos %>% edit_recode(capitulo = capitulo,
+                         periodo = periodo,
+                         factor = factor,
+                         var = "sino") %>%
+      edit_recode(capitulo = capitulo,
+                  periodo = periodo,
+                  factor = factor,
+                  var = "amn") %>%
+      edit_recode(capitulo = capitulo,
+                  periodo = periodo,
+                  factor = factor,
+                  var = "ben") -> datos
+  }
+
 
   return(datos)
 
