@@ -5,6 +5,8 @@
 #'
 #' @param periodo una cadena de texto. Selecciona el periodo en el marco de datos. Este argumento puede tomar el valor `"ii"`, `"iii"`, `"iv"` o `"v"`.
 #' @param capitulo una cadena de texto o un vector de cadenas de texto. Selecciona el o los capítulos en el marco de datos. Puede tomar los valores `"i"`, `"ii"`, `"iii"`, `"iv"`, `"v"`, `"vi"` o `"todos"`.
+#' @param recod lógico. Si TRUE verifica y corrige los valores de las variables categóricas expresadas como numéricas. Si presenta valores diferentes a los niveles de la categoría los convierte en NA.
+#' @param factor lógico. Si TRUE convierte las variables categóricas expresadas como numéricas en factores con niveles expresados textualmente.
 #'
 #' @return un marco de datos tibble.
 #' @export
@@ -50,6 +52,8 @@ edit_capitulo <- function(periodo, capitulo, recod = TRUE, factor = FALSE) {
                   var = "ben") -> datos
   }
 
+  # Eliminar fila vacía
+  datos <- datos[!is.na(datos$nordemp), ]
 
   return(datos)
 

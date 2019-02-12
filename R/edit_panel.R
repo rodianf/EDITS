@@ -5,6 +5,8 @@
 #'
 #' @param panel una cadena de texto. Selecciona el panel que será construido.
 #' @param capitulo una cadena de texto o un vector de cadenas de texto. Selecciona el o los capítulos en el marco de datos.
+#' @param recod lógico. Si TRUE verifica y corrige los valores de las variables categóricas expresadas como numéricas. Si presenta valores diferentes a los niveles de la categoría los convierte en NA.
+#' @param factor lógico. Si TRUE convierte las variables categóricas expresadas como numéricas en factores con niveles expresados textualmente.
 #'
 #' @return un marco de datos tibble.
 #' @export
@@ -55,6 +57,9 @@ edit_panel <- function(panel = "p3", capitulo, recod = TRUE, factor = FALSE, reg
       datos %>%
         filter(Registro == registro) -> datos
     }
+
+    # Eliminar fila vacía
+    datos <- datos[!is.na(datos$nordemp), ]
 
   return(datos)
 }
